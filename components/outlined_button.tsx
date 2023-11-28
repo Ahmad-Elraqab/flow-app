@@ -1,17 +1,26 @@
 import Link from "next/link";
+import styles from '../styles/style.module.scss'
 
-export default function OutlinedButton() {
+type OutlinedButtonProps = {
+    px?: number,
+    py?: number,
+    fontSize?: string,
+};
+
+
+const OutlinedButton: React.FunctionComponent<OutlinedButtonProps> = ({ px, py, fontSize }) => {
 
     return (
-
-        <div className="flex flex-row z-40 items-center" style={{ paddingTop: "19px", borderRadius: "30px" }}>
+        <div className="flex flex-row z-40 items-center" style={{ minWidth: "0px", borderRadius: "30px" }}>
 
             <Link href={'/'} >
-                <div className="py-5 px-14" style={{ border: "1px solid white", borderRadius: "40px" }}>
-                    <p className="text-lg font-semibold" style={{ color: "white" }}>Get Started</p>
+                <div className={`${styles.buttonPadding}`} style={{ ['--data-py' as any]: py, ['--data-px' as any]: px, border: "1px solid white", textAlign: "center", borderRadius: "40px" }}>
+                    <p className={`${fontSize ?? styles.f18}`} style={{ fontWeight: "600", color: "white" }}> Get Started </p>
                 </div>
-            </Link>
-        </div>
-
+            </Link >
+        </div >
     );
 }
+
+
+export default OutlinedButton;

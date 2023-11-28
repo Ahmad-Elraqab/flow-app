@@ -27,19 +27,19 @@ export default function ServicesPage() {
 
         <div className="w-full z-20 h-[1px] bg-[#707070] mt-[38px] mb-[57px]">.</div>
 
-        <p className="text-[25px] font-regular mb-[30px]">Home / Services</p>
+        <p className="f25 font-regular mb-[30px]">Home / Services</p>
 
-        <p className="text-[56px] font-extrabold mb-[18px]">We develop hardware devices using platform</p>
+        <p className="f56 font-extrabold mb-[18px]">We develop hardware devices using platform</p>
 
-        <p className="text-[25px] font-regular mb-[90px]">. We have joined forces with team</p>
+        <p className="f25 font-regular mb-[90px]">. We have joined forces with team</p>
 
 
         <div className="h-full w-full flex flex-row justify-center items-start gap-[120px]">
 
             <div className="w-[35%] text-start flex flex-col justify-start items-stretch">
 
-                <p className="text-[37px] font-semibold mb-[21.7px]">Our services</p>
-                <p className="text-[20px] font-medium mb-[43.1px]">We develop and integrate hardware devices using platform . We have joined forces with team</p>
+                <p className="f37 font-semibold mb-[21.7px]">Our services</p>
+                <p className="f20 font-medium mb-[43.1px]">We develop and integrate hardware devices using platform . We have joined forces with team</p>
 
                 {/* <Image className='w-[full]' src={"/icons/browser-shape.png"} alt='' width={670} height={533} /> */}
 
@@ -47,7 +47,7 @@ export default function ServicesPage() {
                     <img className="" src="/icons/browser-shape.png" alt="" style={{ objectFit: "cover", width: "100%" }} />
                     <div className='absolute right-[100px] top-[400px] p-3 w-[265px] rounded-2xl text-start bg-white items-start px-[16px] py-[20px]' style={{ boxShadow: "0px 1px 50px #00000010" }}>
 
-                        <p className='text-[16px] font-normal mb-[12px] text-[#364F65]'>Total Students</p>
+                        <p className='f16 font-normal mb-[12px] text-[#364F65]'>Total Students</p>
                         <p className='text-[36px] font-medium mb-[10px] text-[#364F65]'>93</p>
 
                         <Image src={"/icons/grid_shape.svg"} alt='' width={265} height={46} />

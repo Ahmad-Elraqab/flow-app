@@ -5,24 +5,32 @@ import ServiceCard from '@/components/service_card'
 import HostCard from '@/components/host_card'
 import Logos from '@/components/logos'
 import '../app/dropdown.css'
+// import '../styles/fontsStyle';
+// import Classes from '../styles/fontsStyle'
+import styles from '../styles/style.module.scss';
+
+
+
 import Navbar from '@/components/navbar'
 import Footer from '@/components/footer'
 
 export default function Home() {
+
+  const setPosition: Function = (l?: any, t?: any, r?: any, b?: any) => { return { ['--data-l' as any]: l, ['--data-t' as any]: t, ['--data-r' as any]: r, ['--data-b' as any]: b, } }
+  const setMargin: Function = (l: any, t: any, r: any, b: any) => { return { ['--data-ml' as any]: l, ['--data-mt' as any]: t, ['--data-mr' as any]: r, ['--data-mb' as any]: b, } }
+  const setPadding: Function = (l: any, t: any, r: any, b: any) => { return { ['--data-pl' as any]: l, ['--data-pt' as any]: t, ['--data-pr' as any]: r, ['--data-pb' as any]: b, } }
+  const setBox: Function = (h: any, w: any) => { return { ['--data-h' as any]: h, ['--data-w' as any]: w, } }
+
   return (
-    <div className="pt-9 mx-auto z-10 flex flex-col items-center"
+    <div className="pt-9 mx-auto z-10 flex flex-col items-center overflow-hidden"
       style={{
         maxWidth: "1980px",
-        // height: "1121px",
-        // overflow: 'visible',
       }}>
       <div
-        className="z-0 mx-auto blur-2xl absolute left-0 right-0"
+        className={`z-0 mx-auto blur-2xl absolute left-0 right-0 w-full ${styles.imgPos}`}
         style={{
-          width: "1980px",
           height: "1121px",
           backgroundImage: `url("icons/bg_logo.svg")`,
-          backgroundPosition: "right -650px bottom -550px",
         }}>
 
       </div>
@@ -30,20 +38,21 @@ export default function Home() {
       <Navbar activeIndex={0} />
       <div className='flex flex-col justify-start z-40 w-full h-full text-center relative'>
 
-        <div className="flex flex-col px-32 mt-12 justify-start z-40 w-full h-[1080px] text-center relative">
+        {/* part 1 */}
+        <div className={`flex flex-col ${styles.ph} mt-12 justify-start overflow-hidden z-40 w-full text-center relative`}>
 
-          <p className='text-white z-40 text-semibold' style={{ fontSize: "56px" }}><b className='text-extrabold'>Most Agile ERP</b> on the Planet</p>
-          <p className='text-white z-40 text-regular' style={{ fontSize: "25px" }}>ERPNext is the world’s best free and open source ERP</p>
+          <p className={`text-white z-40 text-semibold ${styles.f56}`}><b className='text-extrabold'>Most Agile ERP</b> on the Planet</p>
+          <p className={`text-white z-40 text-regular ${styles.f25}`}>ERPNext is the world’s best free and open source ERP</p>
 
           <div className='flex flex-row gap-x-6 justify-center mt-10'>
-            <FilledButton px='57px' />
-            <OutlinedButton />
+            <FilledButton px={80} py={20} />
+            <OutlinedButton px={80} py={20} />
           </div>
 
           <Logos />
 
-          <Image className='position absolute bottom-[145px] left-[460px] z-40' src={"icons/cube-5.svg"} alt='' width={100} height={111} />
-          <Image className='position absolute top-[150px] right-[180px] z-40' src={"icons/cube.svg"} alt='' width={323} height={288} />
+          <img className={`z-30 ${styles.shapeSize}`} style={{ ...setPosition(460, "", "", 145), ...setBox(111, 100) }} src={"icons/cube-5.svg"} alt='' />
+          <img className={`z-30 ${styles.shapeSize}`} style={{ ...setPosition("", 150, 188, ""), ...setBox(288, 323) }} src={"icons/cube.svg"} alt='' />
 
           <div className='flex flex-col absolute right-[75px] bottom-[184px] items-start'>
 
@@ -58,90 +67,95 @@ export default function Home() {
           </div>
 
 
-          <div className='w-[1288px] relative items-center ml-[auto] mr-[auto] mt-[63px]'>
+          <div className='w-[1288px] h-[650px] relative items-center ml-[auto] mr-[auto] mt-[63px]'>
 
-            <div className='absolute left-0 right-0 p-3 mt-[3%] z-40 rounded-2xl flex flex-row justify-start text-start bg-white items-center' style={{ boxShadow: "0px 4px 60px #6C7E93", width: "350px" }}>
+            {/* 1 */}
+            <div className={`${styles.shapeSize} ${styles.borderRadiusSize} ${styles.paddingSizeAll} mt-[3%] z-40 rounded-2xl flex flex-row justify-start text-start bg-white items-center`} style={{ boxShadow: "0px 4px 60px #6C7E93", ['--data-p' as any]: 12, ['--data-w' as any]: 350, ['--data-l' as any]: 0, ['--data-r' as any]: 0, }}>
 
               <div className='rounded-md mr-3 p-3.5' style={{ backgroundColor: "#FEF8E7" }}>
-                <Image className='' src={"icons/paint.svg"} alt='' width={32} height={32} />
+                <img className={`${styles.imgSize}`} src={"icons/paint.svg"} alt='' style={{ ...setBox(32, 32) }} />
               </div>
 
               <div className='mr-5'>
-                <p className='text-black text-lg font-medium mb-1.5'>Basic design</p>
-                <p className='text-sm font-regular' style={{ color: "#898C93" }}>Introduction to Graphic Design.</p>
+                <p className={`text-black font-medium mb-1.5 ${styles.f18}`}>Basic design</p>
+                <p className={`${styles.f14} font-regular`} style={{ color: "#898C93" }}>Introduction to Graphic Design.</p>
               </div>
 
-              <div className='w-6 h-6 rounded p-x-2.5 p-y-2 flex flex-row justify-center items-center' style={{ backgroundColor: "#FAFAFC" }}>
+              <div className={`${styles.imgSize} rounded p-x-2.5 p-y-2 flex flex-row justify-center items-center`} style={{ ...setBox(24, 24), backgroundColor: "#FAFAFC" }}>
                 <Image className='' src={"icons/right-arrow.svg"} alt='' width={8} height={4} />
               </div>
             </div>
 
-            {/* 20 16 27 10 */}
+            {/* 2 */}
+            <div className={`${styles.shapeSize} ${styles.borderRadiusSize} ${styles.marginSize} ${styles.paddingSize} z-50 rounded-2xl text-start bg-white items-center`} style={{ boxShadow: "0px 5px 108px #6C7E93", ...setPosition(0, "", 0, ""), ...setBox("", 245), ...setMargin(170, 150, "", ""), ...setPadding(20, 16, 27, 10), }}>
 
-            <div className='absolute left-0 right-0 p-3 ml-[15%] mt-[12%] z-50 p-3 rounded-2xl text-start bg-white items-center' style={{ boxShadow: "0px 5px 108px #6C7E93", width: "245px", paddingLeft: "20px", paddingTop: "16px", paddingRight: "27px", paddingBottom: "10px" }}>
+              <p className={`${styles.f16} text-black text-md font-regular mb-3`} >Courses</p>
 
-              <p className='text-black text-md font-regular mb-3' >Courses</p>
+              <div className={`flex flex-row justify-start`}>
 
-              <div className='flex flex-row justify-start '>
+                <p className={`${styles.f36} text-black font-medium ${styles.marginSize}`} style={{ ...setMargin(0, 0, 32, "") }} >1</p>
 
-                <p className='text-black text-4xl font-medium mr-8' >1</p>
-
-                <Image className='' src={"icons/chart_2.svg"} alt='' width={147} height={97} />
+                <img className={`${styles.imgSize}`} src={"icons/chart_2.svg"} alt='' style={{ ...setBox(97, 147) }} />
 
               </div>
 
             </div>
 
-            <div className='absolute left-0 right-0 p-3 ml-[auto] mr-[auto] p-3 rounded-2xl text-start bg-white items-center' style={{ boxShadow: "0px 4px 60px #6C7E93", width: "495px", paddingLeft: "26px", paddingTop: "36px", paddingRight: "28px", paddingBottom: "51px" }}>
+            {/* 3 */}
+            <div className={`rounded-2xl text-start bg-white items-center ${styles.borderRadiusSize} ${styles.shapeSize} ${styles.marginSize} ${styles.paddingSize}`} style={{ ...setMargin(400, "", "", ""), ...setBox("", 495), ...setPosition(0, "", 0, ""), ...setPadding(26, 36, 28, 51), boxShadow: "0px 4px 60px #6C7E93", }}>
 
-              <Image className='mb-[61px]' src={"icons/Group 418.svg"} alt='' width={439} height={236} objectFit='contain' />
+              <img className={`${styles.marginSize} ${styles.imgSize}`} src={"icons/Group 418.svg"} alt='' style={{ ...setMargin(0, "", "", 61), ...setBox(236, 439), }} />
 
-              <p className='text-[16px] w-[325px] font-normal' style={{ color: "#4A44C6" }}>You have saved 12% of your spending compared to the previous month.</p>
+              <p className={`${styles.f16} font-normal`} style={{ color: "#4A44C6" }}>You have saved 12% of your spending compared to the previous month.</p>
 
             </div>
 
+            {/* 4 */}
+            <div className={`${styles.shapeSize} ${styles.marginSize} ${styles.borderRadiusSize} ${styles.paddingSize} z-30 mt-[1%] rounded-2xl text-start bg-white items-start`} style={{ boxShadow: "0px 4px 60px #6C7E93", ...setMargin(910, "", "", ""), ...setBox("", 188), ...setPosition(0, "", 0, ""), ...setPadding(16, 20, 16, 20) }}>
 
-            <div className='absolute z-30 right-0 p-3 mr-[15%] mt-[1%] w-[188px] rounded-2xl text-start bg-white items-start px-[16px] py-[20px]' style={{ boxShadow: "0px 4px 60px #6C7E93" }}>
-
-              <div className='w-[46px] h-[46px] rounded mb-[8px]'>
-                <Image src={"icons/Mask Group.svg"} alt='' width={46} height={46} />
+              <div className={`${styles.imgSize} rounded mb-[8px]`} style={{ ...setBox(46, 46), }}>
+                <img className={`${styles.imgSize}`} src={"icons/Mask Group.svg"} alt='' style={{ ...setBox(46, 46) }} />
               </div>
-              <p className='text-[16px] font-normal mb-[14px] '>Mohammed Awad</p>
-              <p className='text-[12px] font-normal mb-[7px] ' style={{ color: "#A6B1BB" }}>Assistant</p>
-              <p className='text-[12px] font-normal mb-[13px] ' style={{ color: "#A6B1BB" }}>Dept of Graphic Design</p>
-              <FilledButton textColor='white' fillColor='#17BCCB' px='40px' py='8px' title='View Profile' fontSize='12px' fontWeight='400' borderRadius='5px' width='100%' />
-            </div>
 
-            <div className='absolute right-0 p-3 mb-[10%] mt-[30%] mr-[28.5%] w-[245px] rounded-2xl text-start bg-white items-start px-[16px] py-[20px]' style={{ boxShadow: "0px 4px 60px #6C7E93" }}>
-
-              <p className='text-[16px] font-normal mb-[12px] text-[#364F65]'>Total Students</p>
-              <p className='text-[36px] font-medium mb-[10px] text-[#364F65]'>93</p>
-
-              <Image src={"icons/grid_shape.svg"} alt='' width={245} height={46} />
+              <p className={`${styles.f16} font-normal mb-[14px]`}>Mohammed Awad</p>
+              <p className={`${styles.f12} font-normal mb-[7px]`} style={{ color: "#A6B1BB" }}>Assistant</p>
+              <p className={`${styles.f12} font-normal mb-[13px]`} style={{ color: "#A6B1BB" }}>Dept of Graphic Design</p>
+              <FilledButton textColor='white' fillColor='#17BCCB' px={40} py={8} title='View Profile' fontSize={styles.f12} fontWeight='400' borderRadius='5px' width='100%' />
 
             </div>
 
-            <div className='absolute right-0 mb-[10%] mt-[18%] mr-[-2%] z-1 w-[375px] rounded-2xl text-start bg-[#FAFBFC] items-start px-[40px] py-[30px]' style={{ boxShadow: "0px 4px 60px #6C7E93" }}>
+            {/* 5 */}
+            <div className={`${styles.shapeSize} ${styles.paddingSize} ${styles.borderRadiusSize} ${styles.marginSize} rounded-2xl text-start bg-white items-start`} style={{ boxShadow: "0px 4px 60px #6C7E93", ...setMargin(670, 400, "", ""), ...setBox("", 245), ...setPosition(0, "", 0, ""), ...setPadding(16, 20, 16, 20) }}>
 
-              <p className='text-[24px] font-medium mb-[12px] text-[#203B54]'>Termtest schedule</p>
+              <p className={`${styles.f16} font-normal mb-[12px] text-[#364F65]`}>Total Students</p>
+              <p className={`${styles.f36} font-medium mb-[10px] text-[#364F65]`}>93</p>
+
+              <img src={"icons/grid_shape.svg"} className={`${styles.imgSize}`} alt='' style={{ ...setBox(46, 245) }} />
+
+            </div>
+
+            {/* 6 */}
+            <div className={`z-1 rounded-2xl text-start bg-[#FAFBFC] items-start ${styles.borderRadiusSize} ${styles.shapeSize} ${styles.marginSize} ${styles.paddingSize}`} style={{ boxShadow: "0px 4px 60px #6C7E93", ...setPosition(0, "", 0, ""), ...setMargin(930, 250, "", ""), ...setBox("", 375), ...setPadding(40, 40, 30, 30), }}>
+
+              <p className={`font-medium mb-[12px] text-[#203B54] ${styles.f24}`}>Termtest schedule</p>
 
               <div className='flex flex-row justify-between items-center mb-[13.5px]'>
 
-                <p className='text-[14px] font-normal mb-[12px] text-[#76808D]'>15 march</p>
-                <Image src={"icons/v.svg"} alt='' width={20} height={20} />
+                <p className={`${styles.f14} font-normal mb-[12px] text-[#76808D]`}>15 march</p>
+                <img className={`${styles.imgSize}`} src={"icons/v.svg"} alt='' style={{ ...setBox(20, 20) }} />
 
               </div>
 
-              <div className='px-[24px] py-[24px] rounded-xl' style={{ boxShadow: "0px 4px 60px #A5AAB5" }}>
+              <div className={`${styles.paddingSize} rounded-xl`} style={{ boxShadow: "0px 4px 60px #A5AAB5", ...setPadding(20, "", 24, "") }}>
 
                 <div className='flex flex-row justify-start items-center mb-[20px]'>
 
-                  <p className='text-[18px] font-medium mr-[16px] text-[#898C93]'>09:00</p>
+                  <p className={`${styles.f18} font-medium mr-[16px] text-[#898C93]`}>09:00</p>
                   <div className='mr-[16px]' style={{ width: "3px", height: "40px", backgroundColor: "#FED554", borderRadius: "3px" }}></div>
                   <div className='flex flex-col gap-[2px] items-start'>
 
-                    <p className='text-[11px] font-normal text-[#9A9DAA]'>GDM 2nd semester</p>
-                    <p className='text-[13px] font-medium text-[#222222]'>One-line Drawing Method</p>
+                    <p className={`${styles.f11} font-normal text-[#9A9DAA]`}>GDM 2nd semester</p>
+                    <p className={`${styles.f13} font-medium text-[#222222]`}>One-line Drawing Method</p>
 
                   </div>
 
@@ -149,12 +163,12 @@ export default function Home() {
 
                 <div className='flex flex-row justify-start items-center '>
 
-                  <p className='text-[18px] font-medium mr-[16px] text-[#898C93]'>09:00</p>
+                  <p className={`${styles.f18} font-medium mr-[16px] text-[#898C93]`}>09:00</p>
                   <div className='mr-[16px]' style={{ width: "3px", height: "40px", backgroundColor: "#FED554", borderRadius: "3px" }}></div>
                   <div className='flex flex-col gap-[2px] items-start'>
 
-                    <p className='text-[11px] font-normal text-[#9A9DAA]'>GDM 2nd semester</p>
-                    <p className='text-[13px] font-medium text-[#222222]'>One-line Drawing Method</p>
+                    <p className={`${styles.f11} font-normal text-[#9A9DAA]`}>GDM 2nd semester</p>
+                    <p className={`${styles.f13} font-medium text-[#222222]`}>One-line Drawing Method</p>
 
                   </div>
 
@@ -169,12 +183,12 @@ export default function Home() {
 
         </div>
 
-        <div className='flex flex-col justify-center items-center z-40 w-full h-[1080px] text-center relative'>
+        {/* part 2 */}
+        <div className='flex flex-col justify-center items-center z-40 w-full overflow-hidden text-center relative'>
 
           <div
-            className="z-0 mx-auto absolute blur-2xl left-0 right-0"
+            className="z-0 mx-auto absolute blur-2xl left-0 right-0 w-full"
             style={{
-              width: "1980px",
               height: "1884px",
               backgroundImage: `url("icons/yellow_bg_no_blur.png")`,
               backgroundPosition: "right -200px bottom -400px",
@@ -183,9 +197,8 @@ export default function Home() {
           </div>
 
           <div
-            className="z-0 mx-auto absolute left-0 right-0"
+            className="z-0 mx-auto absolute left-0 right-0 w-full"
             style={{
-              width: "1980px",
               height: "1675px",
               backgroundImage: `url("icons/outline_yellow_bg.svg")`,
               backgroundPosition: "right -100px bottom -250px",
@@ -193,23 +206,23 @@ export default function Home() {
 
           </div>
 
-          <div className="flex flex-row px-32 justify-between items-center z-40 w-full h-full text-center relative">
+          <div className={`flex flex-wrap justify-between max-[1820px]:justify-center items-center z-40 w-full h-full text-center relative ${styles.paddingSize}`} style={{ ...setPadding(128, "", 128, "") }}>
 
-            <Image className='absolute top-[50px] right-[150px]' src={"icons/grey_cube.svg"} alt='' width={89} height={79} />
+            <img className={`${styles.shapeSize}`} style={{ ...setPosition("", 50, 150, ""), ...setBox(79, 89) }} src={"icons/grey_cube.svg"} alt='' />
 
-            <div className='pl-[131px] pt-[250px]'>
-              <p className='text-[60px] font-semibold w-[431px] text-start leading-[70px] mb-[20px]'>Almost everything you need</p>
-              <p className='text-[16px] font-medium text-[#676767] mb-[57px]'>ERPFlow comes with 1000+ objects to help you run your business</p>
+            <div className={`${styles.paddingSize} max-[1820px]:justify-center max-[1820px]:items-center`} style={{ ...setPadding(131, 250, "", "") }}>
+              <p className={`${styles.f60} font-semibold w-[431px] text-start max-[1820px]:text-center leading-[70px] mb-[20px]`}>Almost everything you need</p>
+              <p className={`${styles.f16} font-medium text-[#676767] mb-[57px]`}>ERPFlow comes with 1000+ objects to help you run your business</p>
 
-              <div className='w-[278px] mb-[100px]'>
-                <FilledButton py='19px' px='53px' fillColor='#15BCCB' title='MORE Solutions' textColor='white' fontWeight='700px' fontSize='18px' />
+              <div className={`${styles.marginSize} max-[1820px]:justify-center max-[1820px]:items-center flex w-full`} style={{ ...setMargin("", "", "", 100) }}>
+                <FilledButton py={19} px={53} fillColor='#15BCCB' title='MORE Solutions' textColor='white' fontWeight='700px' fontSize={styles.f18} />
               </div>
 
-              <Image className='ml-[150px] mb-[40px]' src={"icons/grey_cube.svg"} alt='' width={125} height={112} />
+              <img className={`${styles.imgSize} ${styles.marginSize}`} src={"icons/grey_cube.svg"} alt='' style={{ ...setBox(112, 125), ...setMargin(150, "", "", 40) }} />
               {/* absolute bottom-[150px] left-[350px] */}
             </div>
 
-            <div className='flex flex-wrap gap-[32px]'>
+            <div className='flex flex-row gap-[32px] max-[1820px]:justify-center'>
 
               <div className='gap-[32px] flex flex-col'>
                 <ServiceCard iconHeight={62} iconWidth={62} icon='Settings' title='Services' subTitle='Run your services business better with ' />
@@ -232,13 +245,12 @@ export default function Home() {
 
         </div>
 
-
+        {/* part 3 */}
         <div className='flex flex-col items-center justify-center w-full h-[1080px] text-center relative'>
 
           <div
-            className="mx-auto z-1 absolute left-0 right-0"
+            className="mx-auto z-1 absolute left-0 right-0 w-full"
             style={{
-              width: "1980px",
               height: "1884px",
               backgroundImage: `url("icons/blue_bg.svg")`,
               backgroundPosition: "right -500px bottom -750px",
@@ -247,9 +259,8 @@ export default function Home() {
           </div>
 
           <div
-            className="mx-auto z-1 absolute left-0 right-0"
+            className="mx-auto z-1 absolute left-0 right-0 w-full"
             style={{
-              width: "1980px",
               height: "1800px",
               backgroundImage: `url("icons/outlined_blue_bg.svg")`,
               backgroundPosition: "right -250px bottom -250px",
@@ -257,14 +268,14 @@ export default function Home() {
 
           </div>
 
-          <Image className='absolute right-[200px] top-[120px]' src={"icons/cube-6.svg"} alt='' width={194} height={173} />
-          <Image className='absolute left-[160px] bottom-[140px]' src={"icons/cube-5.svg"} alt='' width={97} height={86} />
+          <img className={`${styles.shapeSize}`} src={"icons/cube-6.svg"} alt='' style={{ ...setPosition("", 120, 200, ""), ...setBox(173, 194) }} />
+          <img className={`${styles.shapeSize}`} src={"icons/cube-5.svg"} alt='' style={{ ...setPosition(160, "", "", 140), ...setBox(86, 97) }} />
 
 
-          <p className='text-[60px] z-40 font-semibold text-[white] text-start leading-[70px] mb-[14px]'>Self Hosted Support</p>
-          <p className='text-[16px] z-40 font-medium text-[white] text-start leading-[32px] mb-[32px]'>ERPFlow comes with 1000+ objects to help you run your business</p>
+          <p className={`${styles.f60} z-40 font-semibold text-[white] text-start leading-[70px] mb-[14px]`}>Self Hosted Support</p>
+          <p className={`${styles.f16} z-40 font-medium text-[white] text-start leading-[32px] mb-[32px]`}>ERPFlow comes with 1000+ objects to help you run your business</p>
 
-          <div className='flex flex-row w-full justify-center z-40 gap-[34px]'>
+          <div className='flex flex-wrap w-full justify-center z-40 gap-[34px]'>
 
             <HostCard iconHeight={218} iconWidth={218} icon='host1' subTitle='Get priority bug fix support from the core ERPNext team with the experience to ensure your systems run defect-free' title='Support' />
             <HostCard iconHeight={218} iconWidth={218} icon='host2' subTitle='Get priority bug fix support from the core ERPNext team with the experience to ensure your systems run defect-free' title='Enterprise' />
@@ -274,12 +285,12 @@ export default function Home() {
           </div>
         </div>
 
-        <div className='flex flex-col items-center justify-center z-40 w-full h-[1080px] text-center relative'>
+        {/* part 4 */}
+        <div className='flex flex-col items-center justify-center z-40 w-full overflow-hidden text-center relative'>
 
           <div
-            className="mx-auto z-1 blur-xl absolute left-0 right-0"
+            className="w-full mx-auto z-1 blur-xl absolute left-0 right-0"
             style={{
-              width: "1980px",
               height: "1884px",
               backgroundImage: `url("icons/bg_light.svg")`,
               backgroundPosition: "right -500px bottom -650px",
@@ -287,28 +298,28 @@ export default function Home() {
 
           </div>
 
-          <Image className='absolute top-[220px] right-[170px]' src={"icons/big_blue_cube.svg"} alt='' width={197} height={175} />
-          <Image className='absolute bottom-[400px] left-[150px]' src={"icons/small_blue_cube.svg"} alt='' width={100} height={89} />
+          <img className={`${styles.shapeSize}`} style={{ ...setPosition("", 220, 170, ""), ...setBox(175, 197) }} src={"icons/big_blue_cube.svg"} alt='' />
+          <img className={`${styles.shapeSize}`} style={{ ...setPosition(150, "", "", 400), ...setBox(89, 100) }} src={"icons/small_blue_cube.svg"} alt='' />
 
-          <div className='z-40 bg-gradient-to-b from-[white] to-[#FFFFFF30] h-[952px] w-[1022px] rounded-[75px] px-[70px] py-[109px]' style={{ boxShadow: "0px 10px 50px #00000006" }}>
+          <div className={`${styles.paddingSize} ${styles.imgSize} z-40 bg-gradient-to-b from-[white] to-[#FFFFFF30] rounded-[75px]`} style={{ ...setPadding(70, 109, 70, 109), ...setBox("", 1022), boxShadow: "0px 10px 50px #00000006" }}>
 
-            <p className='text-[60px] z-40 font-bold text-center leading-[70px] mb-[51px]'>Frequently asked questions</p>
-            <nav className='px-[146px]'>
+            <p className={`${styles.f60} ${styles.marginSize} z-40 font-bold text-center leading-[70px]`} style={{ ...setMargin("", "", "", 51) }}>Frequently asked questions</p>
+            <nav className={`${styles.paddingSize}`} style={{ ...setPadding(146, "", 146, "") }}>
               <ul>
                 {
                   ['How does it work?', 'How can i setup a new website?', 'How does it work?', 'How does it work?', 'How does it work?'].map(e => (
-                    <li className='mb-[37px]'>
+                    <li className={`${styles.marginSize}`} style={...setMargin("", "", "", 37)}>
                       <a href="#nowhere">
-                        <div className='flex flex-row justify-between items-start h-[71px] border-b-[2px] border-[#EFEFEF]' >
+                        <div className={`${styles.imgSize} flex flex-row justify-between items-start border-b-[2px] border-[#EFEFEF]`} style={{ ...setBox(71, 590) }}>
                           <div className='flex flex-row'>
-                            <p className='text-[21px] z-40 font-medium text-center mr-[42px]'>01</p>
-                            <p className='text-[18px] z-40 font-semibold text-center'>{e}</p>
+                            <p className={`${styles.f21} z-40 font-medium text-center ${styles.marginSize}`} style={{ ...setMargin("", "", "", 42) }}>01</p>
+                            <p className={`${styles.f18} z-40 font-semibold text-center`}>{e}</p>
                           </div>
-                          <Image className='' src={"icons/arrow_down.svg"} alt='' width={12} height={7.33} />
+                          <img className={styles.imgSize} src={"icons/arrow_down.svg"} alt='' style={{ ...setBox(7.33, 12) }} />
                         </div>
                       </a>
                       <ul>
-                        <li className='font-medium text-[16px] text-[#676767] text-start pl-[50px] pt-[36px]'>Suppose you produce t-shirts in different sizes and colors. You’ll need to track each type of t-shirt and its variants, known as item variants. In ERPNext, the primary item is stored as an item template, and each of the variations is stored as an item variant. You can store any attribute, such as color or shape, for each item variant.</li>
+                        <li className={`font-medium ${styles.f16} text-[#676767] text-start ${styles.paddingSize}`} style={{ ...setPadding(50, 36, "", "") }}>Suppose you produce t-shirts in different sizes and colors. You’ll need to track each type of t-shirt and its variants, known as item variants. In ERPNext, the primary item is stored as an item template, and each of the variations is stored as an item variant. You can store any attribute, such as color or shape, for each item variant.</li>
                       </ul>
                     </li>
                   ))
@@ -321,14 +332,15 @@ export default function Home() {
 
         </div>
 
+        {/* part 5 */}
         <div className='mt-[99px] flex flex-col justify-center items-center mb-[132px]'>
-          <p className='text-[60px] z-40 font-bold text-center leading-[70px] mb-[14px]'>Loved by users</p>
-          <p className='text-[16px] z-40 font-medium text-center leading-[70px] mb-[104px]'>Used by more than 5000 companies across the world</p>
-          <Image className='w-[1643px] backdrop-grayscale-[.5]' src={"icons/sponsor.svg"} alt='' width={197} height={175} />
+          <p className={`${styles.f60} z-40 font-bold text-center leading-[70px] mb-[14px]`}>Loved by users</p>
+          <p className={`${styles.f16} z-40 font-medium text-center leading-[70px] mb-[104px]`}>Used by more than 5000 companies across the world</p>
+          <img className={`${styles.imgSize}  backdrop-grayscale-[.5]`} src={"icons/sponsor.svg"} alt='' style={{ ...setBox(175, 1643) }} />
         </div>
       </div>
       <Footer />
-    </div>
+    </div >
 
   )
 }

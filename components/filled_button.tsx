@@ -1,10 +1,12 @@
 import Link from "next/link";
 import { AppProps } from 'next/app';
+import styles from '../styles/style.module.scss'
+// import '../styles/style.module.scss'
 
 type FilledButtonProps = {
     title?: string;
-    px?: string,
-    py?: string,
+    px?: number,
+    py?: number,
     fillColor?: string,
     textColor?: string,
     fontSize?: string,
@@ -18,11 +20,11 @@ const FilledButton: React.FunctionComponent<FilledButtonProps> = ({ title, px, p
 
     return (
 
-        <div className="z-40 " style={{ minWidth: width ?? "0px", paddingTop: "19px", borderRadius: `${borderRadius ?? "30px"}` }}>
+        <div className="flex flex-row z-40 items-center" style={{ minWidth: width ?? "0px", borderRadius: `${borderRadius ?? "30px"}` }}>
 
             <Link href={'/'} >
-                <div style={{ textAlign: "center", paddingTop: `${py ?? "20px"}`, paddingBottom: `${py ?? "20px"}`, paddingRight: `${px ?? "80px"}`, paddingLeft: `${px ?? "80px"}`, backgroundColor: `${fillColor ? fillColor : "#FFE05F"}`, borderRadius: borderRadius ?? "40px" }}>
-                    <p style={{ fontWeight: fontWeight ? fontWeight : "600", fontSize: fontSize ? fontSize : "18px", color: `${textColor ? textColor : "#675611"}` }}>{title ? title : "Get Started"} </p>
+                <div className={`${styles.buttonPadding}`} style={{ ['--data-py' as any]: py, ['--data-px' as any]: px, textAlign: "center", backgroundColor: `${fillColor ? fillColor : "#FFE05F"} `, borderRadius: borderRadius ?? "40px" }}>
+                    <p className={`${fontSize ?? styles.f18}`} style={{ fontWeight: fontWeight ? fontWeight : "600", color: `${textColor ? textColor : "#675611"}` }}>{title ? title : "Get Started"} </p>
                 </div>
             </Link >
         </div >

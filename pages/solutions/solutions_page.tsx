@@ -34,11 +34,11 @@ export default function SolutionsPage() {
 
         <div className="w-full z-20 h-[1px] bg-[#707070] mt-[38px] mb-[57px]">.</div>
 
-        <p className="text-[25px] font-regular mb-[30px]">Home / Solutions</p>
+        <p className="f25 font-regular mb-[30px]">Home / Solutions</p>
 
-        <p className="text-[56px] font-extrabold mb-[18px]">Almost everything you need</p>
+        <p className="f56 font-extrabold mb-[18px]">Almost everything you need</p>
 
-        <p className="text-[25px] font-regular mb-[90px]">ERPFlow comes with 1000+ objects to help you run your business</p>
+        <p className="f25 font-regular mb-[90px]">ERPFlow comes with 1000+ objects to help you run your business</p>
 
 
         <div className='z-10 flex flex-wrap gap-[32px] mb-[200px]'>
