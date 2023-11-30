@@ -1,4 +1,4 @@
-$sizes : 60;
+$sizes : 190;
 
 @mixin font-60-list($val) {
     @for $i from 1 through $sizes {
@@ -6,6 +6,10 @@ $sizes : 60;
             font-size: calc(#{$i} * #{$val} * 1px);
         }
     }
+}
+
+.brs {
+    border-radius: calc(#{var(--data-br)}*1px);
 }
 
 .ph {
@@ -99,6 +103,7 @@ $sizes : 60;
 }
 
 @media only screen and (max-width: 1536px) {
+ 
     @include font-60-list(.8);
 
     .ph {
@@ -147,12 +152,18 @@ $sizes : 60;
         padding-bottom: calc(#{var(--data-pb)}*.8px);
     }
 
+    .brs {
+        border-radius: calc(#{var(--data-br)}*.8px);
+    }
+
     .paddingSizeAll {
         padding: calc(#{var(--data-p)}*.8px);
     }
+
 }
 
 @media only screen and (max-width: 1280px) {
+
     @include font-60-list(.7);
 
     .ph {
@@ -205,12 +216,19 @@ $sizes : 60;
         padding-bottom: calc(#{var(--data-pb)}*.7px);
     }
 
+    .brs {
+        border-radius: calc(#{var(--data-br)}*.7px);
+    }
+
     .paddingSizeAll {
         padding: calc(#{var(--data-p)}*.7px);
     }
+
+
 }
 
 @media only screen and (max-width: 1024px) {
+    
     @include font-60-list(.6);
 
     .ph {
@@ -268,6 +286,10 @@ $sizes : 60;
         padding-bottom: calc(#{var(--data-pb)}*.6px);
     }
 
+    .brs {
+        border-radius: calc(#{var(--data-br)}*.6px);
+    }
+
     .paddingSizeAll {
         padding: calc(#{var(--data-p)}*.6px);
     }
@@ -321,6 +343,10 @@ $sizes : 60;
         padding-right: calc(#{var(--data-pr)}*.5px);
         padding-top: calc(#{var(--data-pt)}*.5px);
         padding-bottom: calc(#{var(--data-pb)}*.5px);
+    }
+
+    .brs {
+        border-radius: calc(#{var(--data-br)}*.5px);
     }
 
     .paddingSizeAll {
@@ -377,6 +403,10 @@ $sizes : 60;
         padding-right: calc(#{var(--data-pr)}*.4px);
         padding-top: calc(#{var(--data-pt)}*.4px);
         padding-bottom: calc(#{var(--data-pb)}*.4px);
+    }
+
+    .brs {
+        border-radius: calc(#{var(--data-br)}*.4px);
     }
 
     .paddingSizeAll {

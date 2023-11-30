@@ -63,7 +63,7 @@ const Footer: React.FunctionComponent = () => {
       </div>
 
       <div className='h-[87px] flex flex-col justify-center items-center border-[#15BCCB] border-t-[1px]'>
-        <p className='font-regular text-[15px]'>Copyright © 2022 Flow Erp System</p>
+        <p className={`font-regular ${styles.f15}`}>Copyright © 2022 Flow Erp System</p>
       </div>
 
     </div>
