@@ -1,7 +1,7 @@
 import Footer from "@/components/footer"
 import Navbar from "@/components/navbar"
 import '../../app/dropdown.css'
-import '../../app/globals.scss'
+import '../../app/globals.css'
 import ServiceCard from "@/components/service_card"
 import HostCard from "@/components/host_card"
 import Image from "next/image"
